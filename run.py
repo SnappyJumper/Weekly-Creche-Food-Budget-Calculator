@@ -69,16 +69,16 @@ def validate_date(y, m, d):
 
     return True
 
-def attendance():
-    """
-    Gets the attendance during the week
-    """
-    five_day = int(input("Enter number of children attending all week (Mon-Fri):"))
-    four_day = int(input("Enter number of children attending four days:"))
-    three_day = int(input("Enter number of children attending three days:"))
-    two_day = int(input("Enter number of chidren attending two days:"))
-    one_day = int(input("Enter number of children attending one day:"))
 
+def calculate_budget(days):
+    """
+    Gets the attendance of children over the week and returns the budget allocation
+    """
+    attendance = int(input(f"Enter number of children attending {days} days (Mon-Fri):"))
+    meals_per_week = attendance * days
+    BUDGET_PER_CHILD = 0.5
+    budget = meals_per_week * BUDGET_PER_CHILD
+    return budget
 
 def main():  
     """
@@ -86,6 +86,12 @@ def main():
     """             
     welcome_message()
     date = get_week_starting()
-    present
+    five_day = calculate_budget(5)
+    four_day = calculate_budget(4)
+    three_day = calculate_budget(3)
+    two_day = calculate_budget(2)
+    one_day = calculate_budget(1)
+    budget_for_week = five_day + four_day + three_day + two_day + one_day
+    
 
 main() 
