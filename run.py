@@ -33,7 +33,7 @@ def welcome_message():
 
 def get_week_starting():
     """
-    Gets the current date from the user
+    Gets the current date from the user and stores it to a variable
     """
     print("Let's get you started!\n")
     while True:
@@ -48,25 +48,36 @@ def get_week_starting():
         day = input()
 
         validate_date(year, month, day)
-
+        
         if validate_date(year, month, day):
             print("Date is valid!")
-            break
-    
-    
-    
+            date_entered = datetime.date(int(year), int(month), int(day))
+            break      
+            
+    return date_entered
 
 def validate_date(y, m, d):
-
+    """
+    Validates the date and returns true if valid or false if not
+    """
     try:
-        week_starting = datetime.date(int(y), int(m), int(d))
+        datetime.date(int(y), int(m), int(d))
     
-    except ValueError as e:
+    except ValueError:
         print("Date is invalid please enter as YYYY MM DD")
         return False
 
     return True
 
+def attendance():
+    """
+    Gets the attendance during the week
+    """
+    five_day = int(input("Enter number of children attending all week (Mon-Fri):"))
+    four_day = int(input("Enter number of children attending four days:"))
+    three_day = int(input("Enter number of children attending three days:"))
+    two_day = int(input("Enter number of chidren attending two days:"))
+    one_day = int(input("Enter number of children attending one day:"))
 
 
 def main():  
@@ -74,6 +85,7 @@ def main():
     Run all program functions
     """             
     welcome_message()
-    get_week_starting()
+    date = get_week_starting()
+    present
 
 main() 
