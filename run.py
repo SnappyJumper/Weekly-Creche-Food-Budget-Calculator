@@ -75,20 +75,33 @@ def calculate_dinner_budget(days):
     Gets the attendance of children over the week and returns the budget allocation
     """
     attendance = int(input(f"Enter number of children attending on {days}:"))
-    BUDGET_PER_CHILD = 0.5
+    BUDGET_PER_CHILD = 0.3
 
-    budget = attendance * BUDGET_PER_CHILD
-    return budget
+    weekly_budget = attendance * BUDGET_PER_CHILD
+    return weekly_budget
 
-def budget_subcatagories(category, total_budget):
+def budget_subcategories(category, total_budget):
     """
     calculates the subcatagories of the total budget
     """
     if (category == "meat"):
-        sub_bud = (total_budget / 40) * 100
+        sub_bud = round((total_budget / 100) * 40, 2)
         return sub_bud
-    elif (category == veg):    
-        veg = (total_budget / 41) * 100
+    elif (category == "veg"):    
+        sub_bud = round((total_budget / 100) * 41, 2)
+        return sub_bud
+    elif (category == "herbs"):
+        sub_bud = round((total_budget / 100) * 3, 2)
+        return sub_bud
+    elif (category == "dairy"):
+        sub_bud = round((total_budget / 100) * 16, 2)
+        return sub_bud
+
+def update_worksheets():
+    """
+    updates the attendance and budget worksheets
+    """
+    
 
 def main():  
     """
@@ -102,10 +115,9 @@ def main():
     thursday = calculate_dinner_budget("Thursday")
     friday = calculate_dinner_budget("Friday")
     budget_for_week = monday + tuesday + wednesday + thursday + friday
-    meat_sub = budget_subcatagories("meat", budget_for_week)
-    veg_sub = budget_subcatagories("veg", budget_for_week)
-    herbs_sub = budget_subcatagories("herbs", budget_for_week)
-    dairy_sub = budget_subcatagories("dairy", budget_for_week)
+    meat_sub = budget_subcategories("meat", budget_for_week)
+    veg_sub = budget_subcategories("veg", budget_for_week)
+    herbs_sub = budget_subcategories("herbs", budget_for_week)
+    dairy_sub = budget_subcategories("dairy", budget_for_week)
     
-
 main() 
