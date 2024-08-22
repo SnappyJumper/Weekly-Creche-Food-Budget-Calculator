@@ -46,8 +46,6 @@ def get_week_starting():
 
         print("Enter the day: ")
         day = input()
-
-        validate_date(year, month, day)
         
         if validate_date(year, month, day):
             print("Date is valid!")
@@ -74,7 +72,7 @@ def calculate_dinner_budget(days):
     """
     Gets the attendance of children over the week and returns the budget allocation
     """
-    attendance = int(input(f"Enter number of children attending on {days}:"))
+    attendance = int(input(f"Enter number of children attending on {days}: "))
     BUDGET_PER_CHILD = 0.3
 
     weekly_budget = attendance * BUDGET_PER_CHILD
