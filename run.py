@@ -4,6 +4,8 @@ from google.oauth2.service_account import Credentials
 import textwrap
 # imported datetime to help with date storage
 import datetime
+# imported prettytable to display outputs on a table
+from prettytable import PrettyTable
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -89,7 +91,7 @@ def validate_capacity(cap):
         cap = int(cap)
         
         if cap < 0 :
-            raise ValueError(f"{cap} is a negative value! Please only enter positive values")
+            raise ValueError
         
     except ValueError:
         print("Invalid input, please try again.")
@@ -105,6 +107,7 @@ def calculate_dinner_budget(days, creche_cap):
         attendance = input(f"Enter number of children attending on {days}: ")
         
         if validate_attendance(attendance, creche_cap):
+            print("input accepted!")
             attendance = int(attendance)
             BUDGET_PER_CHILD = 0.3
             weekly_budget = attendance * BUDGET_PER_CHILD
@@ -117,7 +120,7 @@ def validate_attendance(att, creche_capacity):
         att = int(att)
 
         if att >= creche_capacity:
-            raise ValueError(f"Creche Attendance: {att} excedes the capacity of {creche_capacity}")
+            raise ValueError
 
     except ValueError:
         print("Input error, please try again")
