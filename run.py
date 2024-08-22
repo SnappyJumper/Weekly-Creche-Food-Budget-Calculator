@@ -67,6 +67,35 @@ def validate_date(y, m, d):
 
     return True
 
+def get_creche_capacity():
+    """
+    Gets the max capacity of the creche from the user
+    """
+    while True:
+        print("Please input the Maximum capacity of your creche:")
+        capacity = input()
+
+        if validate_capacity(capacity):
+            print("Input accepted!") 
+            capacity = int(capacity)
+            break
+    return capacity
+    
+def validate_capacity(cap):
+    """
+    Validates the capacity input
+    """
+    try:
+        cap = int(cap)
+        
+        if cap < 0 :
+            raise ValueError(f"{cap} is a negative value! Please only enter positive values")
+        
+    except ValueError:
+        print(f"Invalid input, please try again.")
+        return False
+    
+    return True
 
 def calculate_dinner_budget(days):
     """
@@ -107,6 +136,8 @@ def main():
     """             
     welcome_message()
     date = get_week_starting()
+    max_kids = get_creche_capacity()
+    print(max_kids)
     monday = calculate_dinner_budget("Monday")
     tuesday = calculate_dinner_budget("Tuesday")
     wednesday = calculate_dinner_budget("Wednesday")
