@@ -92,20 +92,38 @@ def validate_capacity(cap):
             raise ValueError(f"{cap} is a negative value! Please only enter positive values")
         
     except ValueError:
-        print(f"Invalid input, please try again.")
+        print("Invalid input, please try again.")
         return False
     
     return True
 
-def calculate_dinner_budget(days):
+def calculate_dinner_budget(days, creche_cap):
     """
     Gets the attendance of children over the week and returns the budget allocation
     """
-    attendance = int(input(f"Enter number of children attending on {days}: "))
-    BUDGET_PER_CHILD = 0.3
+    while True:
+        attendance = input(f"Enter number of children attending on {days}: ")
+        
+        if validate_attendance(attendance, creche_cap):
+            attendance = int(attendance)
+            BUDGET_PER_CHILD = 0.3
+            weekly_budget = attendance * BUDGET_PER_CHILD
+            break
 
-    weekly_budget = attendance * BUDGET_PER_CHILD
     return weekly_budget
+
+def validate_attendance(att, creche_capacity):
+    try:
+        att = int(att)
+
+        if att >= creche_capacity:
+            raise ValueError(f"Creche Attendance: {att} excedes the capacity of {creche_capacity}")
+
+    except ValueError:
+        print("Input error, please try again")
+        return False
+
+    return True    
 
 def budget_subcategories(category, total_budget):
     """
@@ -137,12 +155,11 @@ def main():
     welcome_message()
     date = get_week_starting()
     max_kids = get_creche_capacity()
-    print(max_kids)
-    monday = calculate_dinner_budget("Monday")
-    tuesday = calculate_dinner_budget("Tuesday")
-    wednesday = calculate_dinner_budget("Wednesday")
-    thursday = calculate_dinner_budget("Thursday")
-    friday = calculate_dinner_budget("Friday")
+    monday = calculate_dinner_budget("Monday", max_kids)
+    tuesday = calculate_dinner_budget("Tuesday", max_kids)
+    wednesday = calculate_dinner_budget("Wednesday", max_kids)
+    thursday = calculate_dinner_budget("Thursday", max_kids)
+    friday = calculate_dinner_budget("Friday", max_kids)
     budget_for_week = monday + tuesday + wednesday + thursday + friday
     meat_sub = budget_subcategories("meat", budget_for_week)
     veg_sub = budget_subcategories("veg", budget_for_week)
