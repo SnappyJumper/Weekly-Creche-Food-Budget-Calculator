@@ -112,8 +112,10 @@ def calculate_dinner_budget(days, creche_cap):
             BUDGET_PER_CHILD = 0.3
             weekly_budget = attendance * BUDGET_PER_CHILD
             break
+    
+    result = [attendance, weekly_budget]
 
-    return weekly_budget
+    return result
 
 def validate_attendance(att, creche_capacity):
     try:
@@ -126,7 +128,17 @@ def validate_attendance(att, creche_capacity):
         print("Input error, please try again")
         return False
 
-    return True    
+    return True  
+
+def budget_for_week(mon, tues, weds, thurs, fri):
+    """
+    Takes the list that was outputted by the calculate dinner budget
+    and takes the budget from each list and adds them together
+    """
+
+    budget_total = mon[1] + tues[1] + weds[1] + thurs[1] + fri[1]
+
+    return budget_total
 
 def budget_subcategories(category, total_budget):
     """
@@ -174,11 +186,12 @@ def main():
     wednesday = calculate_dinner_budget("Wednesday", max_kids)
     thursday = calculate_dinner_budget("Thursday", max_kids)
     friday = calculate_dinner_budget("Friday", max_kids)
-    budget_for_week = monday + tuesday + wednesday + thursday + friday
-    meat_sub = budget_subcategories("meat", budget_for_week)
-    veg_sub = budget_subcategories("veg", budget_for_week)
-    herbs_sub = budget_subcategories("herbs", budget_for_week)
-    dairy_sub = budget_subcategories("dairy", budget_for_week)
-    terminal_table(date, budget_for_week, meat_sub, veg_sub, herbs_sub, dairy_sub)
+    #budget_for_week = monday + tuesday + wednesday + thursday + friday
+    final_budget = budget_for_week(monday, tuesday, wednesday, thursday, friday)
+    meat_sub = budget_subcategories("meat", final_budget)
+    veg_sub = budget_subcategories("veg", final_budget)
+    herbs_sub = budget_subcategories("herbs", final_budget)
+    dairy_sub = budget_subcategories("dairy", final_budget)
+    terminal_table(date, final_budget, meat_sub, veg_sub, herbs_sub, dairy_sub)
     
 main() 
