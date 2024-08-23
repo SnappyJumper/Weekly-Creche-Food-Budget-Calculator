@@ -145,14 +145,16 @@ def budget_subcategories(category, total_budget):
         sub_bud = round((total_budget / 100) * 16, 2)
         return sub_bud
 
-def terminal_table_budget(when, week_budget, meat, veg, herbs, dairy):
+def terminal_table(when, week_budget, meat, veg, herbs, dairy):
     """
     Generates a table to display results on the terminal
     """
-    budget_table = PrettyTable
+    budget_table = PrettyTable()
 
     budget_table.field_names = ["Date", "Total Budget", "Meat Budget", "Veg Budget", "Herbs Budget", "Dairy Budget"]
-    budget_table.add_row = [when, week_budget, meat, veg, herbs, dairy]
+    budget_table.add_row([when, week_budget, meat, veg, herbs, dairy])
+
+    print(budget_table)
 
 def update_worksheets():
     """
@@ -177,6 +179,6 @@ def main():
     veg_sub = budget_subcategories("veg", budget_for_week)
     herbs_sub = budget_subcategories("herbs", budget_for_week)
     dairy_sub = budget_subcategories("dairy", budget_for_week)
-    terminal_table_budget(date, budget_for_week, meat_sub, veg_sub, herbs_sub, dairy_sub)
+    terminal_table(date, budget_for_week, meat_sub, veg_sub, herbs_sub, dairy_sub)
     
 main() 
