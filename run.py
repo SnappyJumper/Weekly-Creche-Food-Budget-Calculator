@@ -110,10 +110,10 @@ def calculate_dinner_budget(days, creche_cap):
             print("input accepted!")
             attendance = int(attendance)
             BUDGET_PER_CHILD = 0.3
-            weekly_budget = attendance * BUDGET_PER_CHILD
+            daily_budget = attendance * BUDGET_PER_CHILD
             break
     
-    result = [attendance, weekly_budget]
+    result = [attendance, daily_budget]
 
     return result
 
@@ -140,6 +140,7 @@ def budget_for_week(mon, tues, weds, thurs, fri):
 
     return budget_total
 
+
 def budget_subcategories(category, total_budget):
     """
     calculates the subcatagories of the total budget
@@ -157,16 +158,29 @@ def budget_subcategories(category, total_budget):
         sub_bud = round((total_budget / 100) * 16, 2)
         return sub_bud
 
-def terminal_table(when, week_budget, meat, veg, herbs, dairy):
+def terminal_table_budget(when, week_budget, meat, veg, herbs, dairy):
     """
     Generates a table to display results on the terminal
     """
     budget_table = PrettyTable()
 
-    budget_table.field_names = ["Date", "Total Budget", "Meat Budget", "Veg Budget", "Herbs Budget", "Dairy Budget"]
+    budget_table.field_names = ["Week Starting", "Total Budget", "Meat Budget", "Veg Budget", "Herbs Budget", "Dairy Budget"]
     budget_table.add_row([when, week_budget, meat, veg, herbs, dairy])
 
     print(budget_table)
+
+def terminal_table_attendance(week_date, attendance_data):
+    """
+    Generates another table to display attendance on given days
+    """
+    attendance_table = PrettyTable()
+
+    print("Predicted Attendance For The Week:")
+
+    attendance_table.field_names = ["Week Starting", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    attendance_table.add_row([week_date, attendance_data[0], attendance_data[1], attendance_data[2], attendance_data[3], attendance_data[4]])
+
+    print(attendance_table)
 
 def update_worksheets():
     """
@@ -186,12 +200,13 @@ def main():
     wednesday = calculate_dinner_budget("Wednesday", max_kids)
     thursday = calculate_dinner_budget("Thursday", max_kids)
     friday = calculate_dinner_budget("Friday", max_kids)
-    #budget_for_week = monday + tuesday + wednesday + thursday + friday
     final_budget = budget_for_week(monday, tuesday, wednesday, thursday, friday)
+    daily_attendance = [monday[0], tuesday[0], wednesday[0], thursday[0], friday[0]]
     meat_sub = budget_subcategories("meat", final_budget)
     veg_sub = budget_subcategories("veg", final_budget)
     herbs_sub = budget_subcategories("herbs", final_budget)
     dairy_sub = budget_subcategories("dairy", final_budget)
-    terminal_table(date, final_budget, meat_sub, veg_sub, herbs_sub, dairy_sub)
+    terminal_table_budget(date, final_budget, meat_sub, veg_sub, herbs_sub, dairy_sub)
+    terminal_table_attendance(date, daily_attendance)
     
 main() 
