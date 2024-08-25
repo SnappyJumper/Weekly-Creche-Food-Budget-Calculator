@@ -6,6 +6,8 @@ import textwrap
 import datetime
 # imported prettytable to display outputs on a table
 from prettytable import PrettyTable
+import openpyxl
+import pandas as pd
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -101,7 +103,8 @@ def validate_capacity(cap):
 
 def calculate_dinner_budget(days, creche_cap):
     """
-    Gets the attendance of children over the week and returns the budget allocation
+    Gets the attendance of children over the week and returns the
+    budget allocation
     """
     while True:
         attendance = input(f"Enter number of children attending on {days}: ")
@@ -164,7 +167,8 @@ def terminal_table_budget(when, week_budget, meat, veg, herbs, dairy):
     """
     budget_table = PrettyTable()
 
-    budget_table.field_names = ["Week Starting", "Total Budget", "Meat Budget", "Veg Budget", "Herbs Budget", "Dairy Budget"]
+    budget_table.field_names = ["Week Starting", "Total Budget", "Meat Budget",
+     "Veg Budget", "Herbs Budget", "Dairy Budget"]
     budget_table.add_row([when, week_budget, meat, veg, herbs, dairy])
 
     print(budget_table)
@@ -177,16 +181,18 @@ def terminal_table_attendance(week_date, attendance_data):
 
     print("Predicted Attendance For The Week:")
 
-    attendance_table.field_names = ["Week Starting", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-    attendance_table.add_row([week_date, attendance_data[0], attendance_data[1], attendance_data[2], attendance_data[3], attendance_data[4]])
+    attendance_table.field_names = ["Week Starting", "Monday", "Tuesday",
+     "Wednesday", "Thursday", "Friday"]
+    attendance_table.add_row([week_date, attendance_data[0], attendance_data[1],
+     attendance_data[2], attendance_data[3], attendance_data[4]])
 
     print(attendance_table)
 
-def update_worksheets():
+def update_worksheet():
     """
     updates the attendance and budget worksheets
     """
-    
+
 
 def main():  
     """
