@@ -188,12 +188,6 @@ def terminal_table_attendance(week_date, attendance_data):
 
     print(attendance_table)
 
-def update_worksheet():
-    """
-    updates the attendance and budget worksheets
-    """
-
-
 def main():  
     """
     Run all program functions
@@ -214,5 +208,6 @@ def main():
     dairy_sub = budget_subcategories("dairy", final_budget)
     terminal_table_budget(date, final_budget, meat_sub, veg_sub, herbs_sub, dairy_sub)
     terminal_table_attendance(date, daily_attendance)
+    
     
 main() 
