@@ -1,26 +1,9 @@
-import gspread
-from google.oauth2.service_account import Credentials
 # imported textwrap to improve visuals
 import textwrap
 # imported datetime to help with date storage
 import datetime
 # imported prettytable to display outputs on a table
 from prettytable import PrettyTable
-import openpyxl
-import pandas as pd
-
-SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-    ]
-
-CREDS = Credentials.from_service_account_file("creds.json")
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open("weekly_creche_food_budget")
-
-budget = SHEET.worksheet("budget")
 
 def welcome_message():
     """
