@@ -64,4 +64,32 @@ Visit the deployed application [here]().
 
 ### Data Model
 
-Simple data such as the date and 
+Simple data such as the date and the capacity are stored and returned as variables
+
+More complex variables like attendance and daily budget are stored on variables and returned as lists.
+
+The calculations are stored to variables so that they can be formatted and displayed back to the user.
+
+### Flowchart 
+
+The flowchart was designed using [Miro](https://miro.com/). It was used to help plan the logic implemented in the program.
+
+[Flowchart]
+
+As shown in the flowchart the process has changed and some functionality was added and dropped during development but the main idea demonstrated is the same.
+
+[Back to top ^](#creche-budget-calculator)
+
+## Features
+
+### Date Entry
+
+Collects the date of the Monday of the week and stores it to a variable. This is useful for when the output displays later. If the user runs the program multiple times for different weeks the date will help them differenciate between each output.
+
+### Creche Capacity Entry
+
+Collects the total capacity of the users creche and stores it to a variable. This is then displayed in the output and is also used to limit the predicted attendance input so the user cannot enter a value higher than the capacity they entered.
+
+### Predicted Attendance Entry
+
+Collects the attendance on each weekday 
