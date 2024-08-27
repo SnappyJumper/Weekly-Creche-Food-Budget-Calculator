@@ -75,7 +75,7 @@ def validate_capacity(cap):
     try:
         cap = int(cap)
         
-        if cap < 0 :
+        if cap < 1 :
             raise ValueError
         
     except ValueError:

@@ -96,4 +96,81 @@ Collects the attendance on each weekday and stores it as a variable which will b
 
 ### Weekly Budget Calculator
 
+Using the inputted attendance the program multiplies it by the fixed variable containing the budget of the individual child. The program stores this on a variable on a list, along with the attendance, which in turn is returned and used to display in the final output and also to help calculate the budget of the subcategories.
 
+### Budget Subcategory Calculator
+
+Takes the total budget and depending on the specific subcategory allocates a percentage of the total budget to a variable and returns it for the output.
+
+### Restart Program
+
+Gives the user the option to run the program again or to quit out.
+
+### Future Features
+
+The developer is planning to later add options to alter the budget depending on dietry preferences. For example if there is a vegetarian present to reduce the meat budget for the one child increase the veg budget.
+This was decided not to be entered yet as it may take away the intuitiveness of the program.
+The ability to export the output onto an excel spreadsheet or google sheet will also be implemented at a later date. 
+
+[Back to top ^](#creche-budget-calculator)
+
+## Technologies Used
+
+### Language Used
+
+* [Python3](https://en.wikipedia.org/wiki/Python_(programming_language)) was the programming language used to create this program
+
+### Frameworks, Libraries and Programs Used
+
+* [GitHub](https://github.com/) was used to store the project in a repository.
+
+* [GitPod](https://gitpod.io/) was used to write and edit code, commit and push to GitHub.
+
+* [Heroku](https://id.heroku.com/) was used to deploy the application.
+
+* [PEP8 online check](http://pep8online.com/) was used to help validate the code.
+
+* [PrettyTable](https://pypi.org/project/prettytable/) library was used to help display the output in an easy to read manner.
+
+* [Colorama](https://pypi.org/project/colorama/) was used to apply color to the terminal to improve its design.
+
+* [Miro](https://miro.com/) was used to help generate the projects flowchart.
+
+[Back to top ^](#creche-budget-calculator)
+
+## Testing
+
+### Testing User Stories
+
+* As a user, I want to be able to easily understand the purpose and use of the program.
+
+    - The welcome page gives the user clear and simple instructions on how to use the program.
+
+    - The program provides clear instructions throughout so that the user knows exactly what they are doing at each step.
+
+    - The outputs are clearly labeled and displayed well so that the user knows what everything means.
+
+* As a user, I want to be able to easily understand what data and data type I am required to input at each input step.
+
+    - The input messages give clear instructions on what type of input is expected each time.
+
+    - Color is used to highlight important information about the input.
+
+* As a user, I want to receive feedback about the data I entered so I know it was accepted.
+
+    - Each input informs you when the data entered was accepted or if it wasn't it alerts you and gives you the opportunity to enter it again.
+
+* As a user, I want my inputs to be displayed in an easy to read manner so that I remember what data I entered and check that I did not make any mistakes.
+
+    - The inputs are displayed as easy to read tables within the terminal so the user can check the entered the correct data.
+
+* As a user, I want the output to be displayed in a easy to read manner so there is no confusion what I am looking at.
+    
+    - The outputs are displayed on an easy to read table within the terminal, with each output clearly labeled to avoid confusion.
+
+### Manual Testing
+
+Feature | Outcome | Pass/Fail
+--- | --- | ---
+Date Entry | If the input entered is text, empty or not a valid date then we should recieve an error message and a request to input the data again. | Pass
+Creche Capacity Entry | If the input entered is text, empty or less than 
