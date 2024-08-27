@@ -84,7 +84,7 @@ def validate_capacity(cap):
     
     return True
 
-def calculate_dinner_budget(days, creche_cap):
+def calculate_daily_budget(days, creche_cap):
     """
     Gets the attendance of children over the week and returns the
     budget allocation
@@ -178,11 +178,11 @@ def main():
     welcome_message()
     date = get_week_starting()
     max_kids = get_creche_capacity()
-    monday = calculate_dinner_budget("Monday", max_kids)
-    tuesday = calculate_dinner_budget("Tuesday", max_kids)
-    wednesday = calculate_dinner_budget("Wednesday", max_kids)
-    thursday = calculate_dinner_budget("Thursday", max_kids)
-    friday = calculate_dinner_budget("Friday", max_kids)
+    monday = calculate_daily_budget("Monday", max_kids)
+    tuesday = calculate_daily_budget("Tuesday", max_kids)
+    wednesday = calculate_daily_budget("Wednesday", max_kids)
+    thursday = calculate_daily_budget("Thursday", max_kids)
+    friday = calculate_daily_budget("Friday", max_kids)
     final_budget = budget_for_week(monday, tuesday, wednesday, thursday, friday)
     daily_attendance = [monday[0], tuesday[0], wednesday[0], thursday[0], friday[0]]
     meat_sub = budget_subcategories("meat", final_budget)

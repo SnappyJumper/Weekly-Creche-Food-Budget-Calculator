@@ -92,4 +92,8 @@ Collects the total capacity of the users creche and stores it to a variable. Thi
 
 ### Predicted Attendance Entry
 
-Collects the attendance on each weekday 
+Collects the attendance on each weekday and stores it as a variable which will be used later to calculate the total budget for the week and also to display in the output.
+
+### Weekly Budget Calculator
+
+
