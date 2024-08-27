@@ -9,6 +9,7 @@ def welcome_message():
     """
     Displays the welcome message
     """
+   
     print("Welcome to your creche food budget calculator!\n")
     print(textwrap.fill("Use this handy calculator to determine how" 
                         " much your weekly food spend on vegetables and meat should be."))

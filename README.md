@@ -202,3 +202,23 @@ The following instructions explain how to deploy to Heroku:
 15. Choose "Automatic Deploys" or "Manual Deploys" to deploy your application.
 
 [Back to top ^](#creche-budget-calculator)
+
+## Credits
+
+### Content
+
+* Inspiration for the calculator came from the developers current workplace. The creche the developer works in relies on someone in the office to calculate the budgets each week and send a spreadsheet to each creche with their food budget information. The developers intention was to streamline this process.
+
+### Code
+
+* [Stack Overflow](https://stackoverflow.com/) was consulted frequently for inspiration and troubleshooting code throughout development.
+
+* [PyPI](https://pypi.org/) was consulted for instructions on how to install and use PrettyTables.
+
+## Acknowledgements
+
+* My partner and family for all their love and support during this course and this project.
+
+* My mentor Marcel for all his sound advice and help over the last few months.
+
+* Code Institute and its great Slack community for their support and providing me with the course material to help me develop this project.
