@@ -172,5 +172,5 @@ The ability to export the output onto an excel spreadsheet or google sheet will 
 
 Feature | Outcome | Pass/Fail
 --- | --- | ---
-Date Entry | If the input entered is text, empty or not a valid date then we should recieve an error message and a request to input the data again. | Pass
-Creche Capacity Entry | If the input entered is text, empty or less than 
+Date Entry | If the input entered is text, empty or not a valid date then user should recieve an error message and a request to input the data again. | Pass
+Creche Capacity Entry | If the input entered is text, empty or less than 1 then the user should recieve an error message a request to input the data again. | Pass
