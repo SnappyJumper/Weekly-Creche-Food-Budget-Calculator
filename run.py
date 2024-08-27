@@ -109,6 +109,9 @@ def validate_attendance(att, creche_capacity):
 
         if att >= creche_capacity:
             raise ValueError
+        elif att < 0:
+            raise ValueError
+
 
     except ValueError:
         print("Input error, please try again")
