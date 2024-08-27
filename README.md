@@ -174,3 +174,31 @@ Feature | Outcome | Pass/Fail
 --- | --- | ---
 Date Entry | If the input entered is text, empty or not a valid date then user should recieve an error message and a request to input the data again. | Pass
 Creche Capacity Entry | If the input entered is text, empty or less than 1 then the user should recieve an error message a request to input the data again. | Pass
+Predicted Attendance Entry | If the input entered is text, empty, greater than the creche capacity or a negative value then the user should recieve an error message and a request to enter the data again. | Pass
+Restart Program | When the user inputs Y then the program should restart from the begining if they enter N then the program should exit. | Pass
+
+[Back to top ^](#creche-budget-calculator)
+
+## Deployment
+
+The application was deployed using [Heroku](https://id.heroku.com/).
+
+The following instructions explain how to deploy to Heroku:
+
+1. Create a requirements.txt file within the explorer and run: `pip3 freeze > requirements.txt` in the console.
+2. Commit and push changes to GitHub.
+3. Navigate to the Heroku's website.
+4. From the Heroku dashboard, select the "Create new app" option.
+5. Enter the "App Name" and "Choose a Region", then click on "Create App".
+6. Go to "Config Vars" in the "Settings" tab.
+7. Click the "Reveals Config Vars" and add the Key: Creds and the Value stored in creds.json file if required.
+8. Add the Config Var, KEY: Port and Value: 8000.
+9. Go to the "Buildpacks" section and click "Add Buildpack".
+10. Select "python" and then "Save Changes".
+11. Add "nodejs" buildpack as well following the same instructions at step 9.
+12. Go to "Deployment Method", in the "Deploy" tab select "GitHub" then select "Connect to GitHub".
+13. Go to "Connect to GitHub" section and "Search" the repository that you wish to deploy.
+14. Select "Connect" beside the repositories name.
+15. Choose "Automatic Deploys" or "Manual Deploys" to deploy your application.
+
+[Back to top ^](#creche-budget-calculator)
