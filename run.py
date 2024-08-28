@@ -73,7 +73,8 @@ def get_creche_capacity():
     
 def validate_capacity(cap):
     """
-    Validates the capacity input
+    Validates the capacity input, ensuring it is a number variable
+    and is not under 1.
     """
     try:
         cap = int(cap)
@@ -89,8 +90,8 @@ def validate_capacity(cap):
 
 def calculate_daily_budget(days, creche_cap):
     """
-    Gets the attendance of children over the week and returns the
-    budget allocation
+    Gets the attendance of children on each weekday and
+    returns the budget for that day
     """
     while True:
         attendance = input(f"Enter number of children attending on {days}: ")
@@ -98,7 +99,8 @@ def calculate_daily_budget(days, creche_cap):
         if validate_attendance(attendance, creche_cap):
             print("input accepted!")
             attendance = int(attendance)
-            BUDGET_PER_CHILD = 0.3
+            # Budget is fixed variable determined by creche
+            BUDGET_PER_CHILD = 0.9
             daily_budget = attendance * BUDGET_PER_CHILD
             break
     
@@ -107,6 +109,10 @@ def calculate_daily_budget(days, creche_cap):
     return result
 
 def validate_attendance(att, creche_capacity):
+    """
+    Validates the attendance, ensuring it is over 0 and does not
+    exceed the creche capacity.
+    """
     try:
         att = int(att)
 
@@ -114,7 +120,6 @@ def validate_attendance(att, creche_capacity):
             raise ValueError
         elif att < 0:
             raise ValueError
-
 
     except ValueError:
         print("Input error, input should be a positive number that does not exceed the creche capacity, please try again")
@@ -138,15 +143,19 @@ def budget_subcategories(category, total_budget):
     calculates the subcatagories of the total budget
     """
     if (category == "meat"):
+        # meat budget
         sub_bud = round((total_budget / 100) * 40, 2)
-        return sub_bud
-    elif (category == "veg"):    
+        return sub_bud    
+    elif (category == "veg"): 
+        # veg budget   
         sub_bud = round((total_budget / 100) * 41, 2)
         return sub_bud
     elif (category == "herbs"):
+        # herbs budget
         sub_bud = round((total_budget / 100) * 3, 2)
         return sub_bud
     elif (category == "dairy"):
+        # dairy budget
         sub_bud = round((total_budget / 100) * 16, 2)
         return sub_bud
 
@@ -154,28 +163,36 @@ def terminal_table_budget(when, week_budget, meat, veg, herbs, dairy):
     """
     Generates a table to display results on the terminal
     """
+    # creates a new table and assigns it to a variable
     budget_table = PrettyTable()
-
+    # adds the column names to the table
     budget_table.field_names = ["Week Starting", "Total Budget", "Meat Budget",
      "Veg Budget", "Herbs Budget", "Dairy Budget"]
+    # adds a row to the table
     budget_table.add_row([when, week_budget, meat, veg, herbs, dairy])
 
+    print("Budget breakdown:\n")
     print(budget_table)
+    print()
 
-def terminal_table_attendance(week_date, attendance_data):
+def terminal_table_attendance(week_date, attendance_data, kid_limit):
     """
     Generates another table to display attendance on given days
     """
+    # creates a new table and assigns it to a variable
     attendance_table = PrettyTable()
 
-    print("Predicted Attendance For The Week:")
-
+    print()
+    print("Predicted Attendance For The Week:\n")
+    # adds the column names to the table
     attendance_table.field_names = ["Week Starting", "Monday", "Tuesday",
-     "Wednesday", "Thursday", "Friday"]
+     "Wednesday", "Thursday", "Friday", "Creche Daily Capacity"]
+    # adds a row to the table
     attendance_table.add_row([week_date, attendance_data[0], attendance_data[1],
-     attendance_data[2], attendance_data[3], attendance_data[4]])
+     attendance_data[2], attendance_data[3], attendance_data[4], kid_limit])
 
     print(attendance_table)
+    print()
 
 def run_again():
     '''
@@ -199,6 +216,9 @@ def run_again():
                 return True
 
 def validate_run_again(answer):
+    """
+    validates the run again input
+    """
     try:
         if answer == "y":
             return True
@@ -232,7 +252,7 @@ def main():
         veg_sub = budget_subcategories("veg", final_budget)
         herbs_sub = budget_subcategories("herbs", final_budget)
         dairy_sub = budget_subcategories("dairy", final_budget)
-        terminal_table_attendance(date, daily_attendance)
+        terminal_table_attendance(date, daily_attendance, max_kids)
         terminal_table_budget(date, final_budget, meat_sub, veg_sub, herbs_sub, dairy_sub)
         run = run_again()
         if not run:
