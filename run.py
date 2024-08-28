@@ -15,7 +15,7 @@ def welcome_message():
     print()
     print(Fore.BLUE + "Welcome to your creche food budget calculator!\n")
     print(textwrap.fill(Style.RESET_ALL + "Use this handy calculator to"
-                        "determine how much your weekly food spend is!"))
+                        " determine how much your weekly food spend is!"))
     print()
     print(textwrap.fill("The calculator will need the date at the start of the"
                         " week, the capacity of your creche and your daily"

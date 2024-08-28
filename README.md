@@ -1,5 +1,7 @@
 # Creche Budget Calculator
 
+![Creche Budget Calculator Mockup Image](assets/images/mockup-image.png)
+
 The Creche Budget Calculator is designed to help the users to organise the weekly food budget for their creche.
 
 It can calculate the total budget for the creche per week and also allocate that budget to a few subcategories like meat, veg and dairy.
@@ -62,6 +64,12 @@ Visit the deployed application [here]().
 
 ### Color Scheme
 
+[Colorama](https://pypi.org/project/colorama/) was the library used to add color to the program.
+
+A simple color scheme was used to make the code more aesthetically pleasing within the terminal. Blue font was used for titles, green for positive input acception and red for error messages.
+
+The input and output table was also given a magenta color to help it stand out from the rest of the terminal.
+
 ### Data Model
 
 Simple data such as the date and the capacity are stored and returned as variables
@@ -74,7 +82,7 @@ The calculations are stored to variables so that they can be formatted and displ
 
 The flowchart was designed using [Miro](https://miro.com/). It was used to help plan the logic implemented in the program.
 
-[Flowchart]
+![Flowchart](assets/images/project_flowchart.png)
 
 As shown in the flowchart the process has changed and some functionality was added and dropped during development but the main idea demonstrated is the same.
 
@@ -86,13 +94,19 @@ As shown in the flowchart the process has changed and some functionality was add
 
 Collects the date of the Monday of the week and stores it to a variable. This is useful for when the output displays later. If the user runs the program multiple times for different weeks the date will help them differenciate between each output.
 
+![Date Entry](assets/images/date-entry-image.png)
+
 ### Creche Capacity Entry
 
 Collects the total capacity of the users creche and stores it to a variable. This is then displayed in the output and is also used to limit the predicted attendance input so the user cannot enter a value higher than the capacity they entered.
 
+![Creche Capacity Entry](assets/images/creche-capacity-image.png)
+
 ### Predicted Attendance Entry
 
 Collects the attendance on each weekday and stores it as a variable which will be used later to calculate the total budget for the week and also to display in the output.
+
+![Predicted Attendance Entry](assets/images/predicted-attendance-image.png)
 
 ### Weekly Budget Calculator
 
@@ -102,15 +116,31 @@ Using the inputted attendance the program multiplies it by the fixed variable co
 
 Takes the total budget and depending on the specific subcategory allocates a percentage of the total budget to a variable and returns it for the output.
 
+### Inputs Displayed
+
+The inputs the user has put into the program are displayed at the end so that they can be reviewed in case of error. They are displayed in a table format.
+
+![Inputs Table](assets/images/inputs-table-image.png)
+
+### Outputs Displayed
+
+The outputs the user receives are clearly displayed on a neat table in the terminal.
+
+![Outputs Table](assets/images/outputs-table-image.png)
+
 ### Restart Program
 
 Gives the user the option to run the program again or to quit out.
 
+![Restart Image Positive](assets/images/restart-image-positive.png)
+
+![Restart Image Negative](assets/images/restart-image-negative.png)
+
 ### Future Features
 
-The developer is planning to later add options to alter the budget depending on dietry preferences. For example if there is a vegetarian present to reduce the meat budget for the one child increase the veg budget.
-This was decided not to be entered yet as it may take away the intuitiveness of the program.
-The ability to export the output onto an excel spreadsheet or google sheet will also be implemented at a later date. 
+* The developer is planning to later add options to alter the budget depending on dietry preferences. For example if there is a vegetarian present to reduce the meat budget and increase the veg budget for that one child. This was decided not to be entered yet as it may take away the intuitiveness of the program.
+
+* The ability to export the output onto an excel spreadsheet or google sheet will also be implemented at a later date. 
 
 [Back to top ^](#creche-budget-calculator)
 
@@ -128,7 +158,7 @@ The ability to export the output onto an excel spreadsheet or google sheet will 
 
 * [Heroku](https://id.heroku.com/) was used to deploy the application.
 
-* [PEP8 online check](http://pep8online.com/) was used to help validate the code.
+* [CI Python Linter](https://pep8ci.herokuapp.com/#) was used to help validate the code.
 
 * [PrettyTable](https://pypi.org/project/prettytable/) library was used to help display the output in an easy to read manner.
 
@@ -154,8 +184,6 @@ The ability to export the output onto an excel spreadsheet or google sheet will 
 
     - The input messages give clear instructions on what type of input is expected each time.
 
-    - Color is used to highlight important information about the input.
-
 * As a user, I want to receive feedback about the data I entered so I know it was accepted.
 
     - Each input informs you when the data entered was accepted or if it wasn't it alerts you and gives you the opportunity to enter it again.
@@ -167,6 +195,18 @@ The ability to export the output onto an excel spreadsheet or google sheet will 
 * As a user, I want the output to be displayed in a easy to read manner so there is no confusion what I am looking at.
     
     - The outputs are displayed on an easy to read table within the terminal, with each output clearly labeled to avoid confusion.
+
+### Code Validation
+
+The [CI Python Linter](https://pep8ci.herokuapp.com/#) was used during development to validate the Python code for PEP8 requirements
+
+* Before Validation:
+
+![Before](assets/images/pep8ci-validation-before.png)
+
+* After Validation:
+
+![After](assets/images/pep8ci-validation-after.png)
 
 ### Manual Testing
 
