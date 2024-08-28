@@ -31,14 +31,18 @@ def get_week_starting():
     print(Fore.BLUE + "Let's get you started!\n")
     while True:
         print(Style.RESET_ALL + "Please enter the starting date for the week")
+        print()
         print("Enter the year:(YYYY) ")
         year = input()
+        print()
 
         print("Enter the month:(MM) ")
         month = input()
+        print()
 
         print("Enter the day:(DD) ")
         day = input()
+        
         
         if validate_date(year, month, day):
             print()
@@ -108,8 +112,10 @@ def calculate_daily_budget(days, creche_cap):
     returns the budget for that day
     """
     while True:
-        attendance = input(f"Enter number of children attending on {days}: ")
+        print(f"Enter number of children attending on {days}: ")
         
+        attendance = input()
+
         if validate_attendance(attendance, creche_cap):
             print()
             print(Fore.GREEN + "Input accepted!")
@@ -205,7 +211,6 @@ def terminal_table_attendance(week_date, attendance_data, kid_limit):
 
     print()
     print(Fore.BLUE + "Predicted Attendance For The Week:\n")
-    print(Style.RESET_ALL)
     # adds the column names to the table
     attendance_table.field_names = ["Week Starting", "Monday", "Tuesday",
      "Wednesday", "Thursday", "Friday", "Creche Daily Capacity"]
@@ -224,14 +229,16 @@ def run_again():
     once again or exit
     '''
     while True:
-        run_again = input(
+        run_again = input(Fore.BLUE + 
                         "Would you like to run the calculator again?"
+                        + Style.RESET_ALL + 
                         "\nTo run again, please enter 'y'."
                         "\nTo exit, please enter 'n'.\n")
         if validate_run_again(run_again):
 
             if run_again == 'n':
-                print("Thanks for using the Creche Budget Calculator, See you soon!")
+                print(Fore.BLUE + "Thanks for using the Creche Budget Calculator, See you soon!")
+                print(Style.RESET_ALL)
                 print(textwrap.fill(
                                     "If you change your mind and want to run the program again"
                                     " just reset the program or refesh the page"))
