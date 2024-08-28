@@ -4,14 +4,16 @@ import textwrap
 import datetime
 # imported prettytable to display outputs on a table
 from prettytable import PrettyTable
+# imported colorama to add some color to terminal
+from colorama import Fore, Back, Style
 
 def welcome_message():
     """
     Displays the welcome message
     """
-   
-    print("Welcome to your creche food budget calculator!\n")
-    print(textwrap.fill("Use this handy calculator to determine how" 
+    print()
+    print(Fore.BLUE + "Welcome to your creche food budget calculator!\n")
+    print(textwrap.fill(Style.RESET_ALL + "Use this handy calculator to determine how" 
                         " much your weekly food spend is!"))
     print()
     print(textwrap.fill("The calculator will need the date at the start of the week,"
@@ -25,9 +27,10 @@ def get_week_starting():
     """
     Gets the current date from the user and stores it to a variable
     """
-    print("Let's get you started!\n")
+    print()
+    print(Fore.BLUE + "Let's get you started!\n")
     while True:
-        print("Please enter the starting date for the week")
+        print(Style.RESET_ALL + "Please enter the starting date for the week")
         print("Enter the year:(YYYY) ")
         year = input()
 
@@ -38,7 +41,9 @@ def get_week_starting():
         day = input()
         
         if validate_date(year, month, day):
-            print("Date is valid!")
+            print()
+            print(Fore.GREEN + "Date is valid!")
+            print(Style.RESET_ALL)
             date_entered = datetime.date(int(year), int(month), int(day))
             break      
             
@@ -50,9 +55,14 @@ def validate_date(y, m, d):
     """
     try:
         datetime.date(int(y), int(m), int(d))
+
+        if len(y) < 4:
+            raise ValueError
     
     except ValueError:
-        print("Date is invalid please enter as YYYY MM DD")
+        print()
+        print(Fore.RED + "Date is invalid please enter as YYYY MM DD")
+        print(Style.RESET_ALL)
         return False
 
     return True
@@ -66,7 +76,9 @@ def get_creche_capacity():
         capacity = input()
 
         if validate_capacity(capacity):
-            print("Input accepted!") 
+            print()
+            print(Fore.GREEN + "Input accepted!") 
+            print(Style.RESET_ALL)
             capacity = int(capacity)
             break
     return capacity
@@ -83,7 +95,9 @@ def validate_capacity(cap):
             raise ValueError
         
     except ValueError:
-        print("Invalid input, positive numbers only, please try again.")
+        print()
+        print(Fore.RED + "Invalid input, positive numbers only, please try again.")
+        print(Style.RESET_ALL)
         return False
     
     return True
@@ -97,7 +111,9 @@ def calculate_daily_budget(days, creche_cap):
         attendance = input(f"Enter number of children attending on {days}: ")
         
         if validate_attendance(attendance, creche_cap):
-            print("input accepted!")
+            print()
+            print(Fore.GREEN + "Input accepted!")
+            print(Style.RESET_ALL)
             attendance = int(attendance)
             # Budget is fixed variable determined by creche
             BUDGET_PER_CHILD = 0.9
@@ -122,7 +138,9 @@ def validate_attendance(att, creche_capacity):
             raise ValueError
 
     except ValueError:
-        print("Input error, input should be a positive number that does not exceed the creche capacity, please try again")
+        print()
+        print(Fore.RED + "Input error, input should be a positive number that does not exceed the creche capacity, please try again")
+        print(Style.RESET_ALL)
         return False
 
     return True  
@@ -163,6 +181,7 @@ def terminal_table_budget(when, week_budget, meat, veg, herbs, dairy):
     """
     Generates a table to display results on the terminal
     """
+    week_budget = round(week_budget,2)
     # creates a new table and assigns it to a variable
     budget_table = PrettyTable()
     # adds the column names to the table
@@ -171,9 +190,11 @@ def terminal_table_budget(when, week_budget, meat, veg, herbs, dairy):
     # adds a row to the table
     budget_table.add_row([when, week_budget, meat, veg, herbs, dairy])
 
-    print("Budget breakdown:\n")
+    print(Fore.BLUE + "Budget breakdown:\n")
+    print(Fore.MAGENTA)
     print(budget_table)
-    print()
+    print(Style.RESET_ALL)
+    
 
 def terminal_table_attendance(week_date, attendance_data, kid_limit):
     """
@@ -183,16 +204,19 @@ def terminal_table_attendance(week_date, attendance_data, kid_limit):
     attendance_table = PrettyTable()
 
     print()
-    print("Predicted Attendance For The Week:\n")
+    print(Fore.BLUE + "Predicted Attendance For The Week:\n")
+    print(Style.RESET_ALL)
     # adds the column names to the table
     attendance_table.field_names = ["Week Starting", "Monday", "Tuesday",
      "Wednesday", "Thursday", "Friday", "Creche Daily Capacity"]
     # adds a row to the table
     attendance_table.add_row([week_date, attendance_data[0], attendance_data[1],
      attendance_data[2], attendance_data[3], attendance_data[4], kid_limit])
-
+    
+    print(Fore.MAGENTA)
     print(attendance_table)
-    print()
+    print(Style.RESET_ALL)
+    
 
 def run_again():
     '''
@@ -228,7 +252,9 @@ def validate_run_again(answer):
             raise ValueError
     
     except ValueError:
-        print("Input error, answer y or n, please try again")
+        print()
+        print(Fore.RED + "Input error, answer y or n, please try again")
+        print(Style.RESET_ALL)
         return False
 
 
