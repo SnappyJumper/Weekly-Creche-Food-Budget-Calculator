@@ -26,13 +26,13 @@ def get_week_starting():
     print("Let's get you started!\n")
     while True:
         print("Please enter the starting date for the week")
-        print("Enter the year: ")
+        print("Enter the year:(YYYY) ")
         year = input()
 
-        print("Enter the month: ")
+        print("Enter the month:(MM) ")
         month = input()
 
-        print("Enter the day: ")
+        print("Enter the day:(DD) ")
         day = input()
         
         if validate_date(year, month, day):
@@ -80,7 +80,7 @@ def validate_capacity(cap):
             raise ValueError
         
     except ValueError:
-        print("Invalid input, please try again.")
+        print("Invalid input, positive numbers only, please try again.")
         return False
     
     return True
@@ -115,7 +115,7 @@ def validate_attendance(att, creche_capacity):
 
 
     except ValueError:
-        print("Input error, please try again")
+        print("Input error, input should be a positive number that does not exceed the creche capacity, please try again")
         return False
 
     return True  
@@ -230,8 +230,8 @@ def main():
         veg_sub = budget_subcategories("veg", final_budget)
         herbs_sub = budget_subcategories("herbs", final_budget)
         dairy_sub = budget_subcategories("dairy", final_budget)
-        terminal_table_budget(date, final_budget, meat_sub, veg_sub, herbs_sub, dairy_sub)
         terminal_table_attendance(date, daily_attendance)
+        terminal_table_budget(date, final_budget, meat_sub, veg_sub, herbs_sub, dairy_sub)
         run = run_again()
         if not run:
             break
