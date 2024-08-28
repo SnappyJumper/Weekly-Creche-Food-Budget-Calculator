@@ -175,26 +175,65 @@ def terminal_table_attendance(week_date, attendance_data):
 
     print(attendance_table)
 
+def run_again():
+    '''
+    Allow the user to run the application
+    once again or exit
+    '''
+    while True:
+        run_again = input(
+                        "Would you like to run the calculator again?"
+                        "\nTo run again, please enter 'y'."
+                        "\nTo exit, please enter 'n'.\n")
+        if validate_run_again(run_again):
+
+            if run_again == 'n':
+                print("Thanks for using the Creche Budget Calculator, See you soon!")
+                print(textwrap.fill(
+                                    "If you change your mind and want to run the program again"
+                                    " just reset the program or refesh the page"))
+                return False
+            else:
+                return True
+
+def validate_run_again(answer):
+    try:
+        if answer == "y":
+            return True
+        elif answer == "n":
+            return True
+        else:
+            raise ValueError
+    
+    except ValueError:
+        print("Input error, please try again")
+        return False
+
+
+
 def main():  
     """
     Run all program functions
     """             
     welcome_message()
-    date = get_week_starting()
-    max_kids = get_creche_capacity()
-    monday = calculate_daily_budget("Monday", max_kids)
-    tuesday = calculate_daily_budget("Tuesday", max_kids)
-    wednesday = calculate_daily_budget("Wednesday", max_kids)
-    thursday = calculate_daily_budget("Thursday", max_kids)
-    friday = calculate_daily_budget("Friday", max_kids)
-    final_budget = budget_for_week(monday, tuesday, wednesday, thursday, friday)
-    daily_attendance = [monday[0], tuesday[0], wednesday[0], thursday[0], friday[0]]
-    meat_sub = budget_subcategories("meat", final_budget)
-    veg_sub = budget_subcategories("veg", final_budget)
-    herbs_sub = budget_subcategories("herbs", final_budget)
-    dairy_sub = budget_subcategories("dairy", final_budget)
-    terminal_table_budget(date, final_budget, meat_sub, veg_sub, herbs_sub, dairy_sub)
-    terminal_table_attendance(date, daily_attendance)
-    
+    while True:
+        date = get_week_starting()
+        max_kids = get_creche_capacity()
+        monday = calculate_daily_budget("Monday", max_kids)
+        tuesday = calculate_daily_budget("Tuesday", max_kids)
+        wednesday = calculate_daily_budget("Wednesday", max_kids)
+        thursday = calculate_daily_budget("Thursday", max_kids)
+        friday = calculate_daily_budget("Friday", max_kids)
+        final_budget = budget_for_week(monday, tuesday, wednesday, thursday, friday)
+        daily_attendance = [monday[0], tuesday[0], wednesday[0], thursday[0], friday[0]]
+        meat_sub = budget_subcategories("meat", final_budget)
+        veg_sub = budget_subcategories("veg", final_budget)
+        herbs_sub = budget_subcategories("herbs", final_budget)
+        dairy_sub = budget_subcategories("dairy", final_budget)
+        terminal_table_budget(date, final_budget, meat_sub, veg_sub, herbs_sub, dairy_sub)
+        terminal_table_attendance(date, daily_attendance)
+        run = run_again()
+        if not run:
+            break
     
 main() 
