@@ -12,12 +12,14 @@ def welcome_message():
    
     print("Welcome to your creche food budget calculator!\n")
     print(textwrap.fill("Use this handy calculator to determine how" 
-                        " much your weekly food spend on vegetables and meat should be."))
+                        " much your weekly food spend is!"))
     print()
-    print(textwrap.fill("The calculator will take inputs of the predicted attendance of" 
-                        " children and staff for the coming week and ask if there are" 
-                        " any vegetarians present. Then it will output your individual" 
-                        " budgets for Meat and Vegetables to a spreadsheet."))
+    print(textwrap.fill("The calculator will need the date at the start of the week,"
+                        " the capacity of your creche and your daily predicted attendance."
+                        " Using these inputs the calculator will give you two tables"
+                        " displaying both your inputs and the output budget. The output "
+                        " budget will be displayed in full and broken down into various" 
+                        " subcategories"))
 
 def get_week_starting():
     """
@@ -206,7 +208,7 @@ def validate_run_again(answer):
             raise ValueError
     
     except ValueError:
-        print("Input error, please try again")
+        print("Input error, answer y or n, please try again")
         return False
 
 
