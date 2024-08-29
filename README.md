@@ -32,7 +32,7 @@ Visit the deployed application [here](https://creche-budget-calculator-b01b347ae
     3. [Manual Testing](#manual-testing)
 5. [Deployment](#deployment)
 6. [Credits](#credits)
-7. [Acknowledgements](#acknowledgements)
+7. [Acknowledgments](#acknowledgments)
 
 ***
 
@@ -44,7 +44,7 @@ Visit the deployed application [here](https://creche-budget-calculator-b01b347ae
 
 * Every stage in the program is intuitive and the user understands what they need to do next easily.
 
-* Input validation will be present so that the correct data types are entered into the calculator, thus reducing the chance of errors occuring.
+* Input validation will be present so that the correct data types are entered into the calculator, thus reducing the chance of errors occurring.
 
 * The outputted data should be easy to understand and display clearly.
 
@@ -56,7 +56,7 @@ Visit the deployed application [here](https://creche-budget-calculator-b01b347ae
 
 * As a user, I want to be able to easily understand what data and data type I am required to input at each input step.
 
-* As a user, I want to receive feedback about the data I entered so I know it was accepted.
+* As a user, I want to receive feedback about the data I entered, so I know it was accepted.
 
 * As a user, I want my inputs to be displayed in an easy to read manner so that I remember what data I entered and check that I did not make any mistakes.
 
@@ -66,7 +66,7 @@ Visit the deployed application [here](https://creche-budget-calculator-b01b347ae
 
 [Colorama](https://pypi.org/project/colorama/) was the library used to add color to the program.
 
-A simple color scheme was used to make the code more aesthetically pleasing within the terminal. Blue font was used for titles, green for positive input acception and red for error messages.
+A simple color scheme was used to make the code more aesthetically pleasing within the terminal. Blue font was used for titles, green for accepted input and red for error messages.
 
 The input and output table was also given a magenta color to help it stand out from the rest of the terminal.
 
@@ -92,7 +92,7 @@ As shown in the flowchart the process has changed and some functionality was add
 
 ### Date Entry
 
-Collects the date of the Monday of the week and stores it to a variable. This is useful for when the output displays later. If the user runs the program multiple times for different weeks the date will help them differenciate between each output.
+Collects the date of the Monday of the week and stores it to a variable. This is useful for when the output displays later. If the user runs the program multiple times for different weeks the date will help them differentiate between each output.
 
 ![Date Entry](assets/readme-files/images/date-entry-image.png)
 
@@ -184,7 +184,7 @@ Gives the user the option to run the program again or to quit out.
 
     - The input messages give clear instructions on what type of input is expected each time.
 
-* As a user, I want to receive feedback about the data I entered so I know it was accepted.
+* As a user, I want to receive feedback about the data I entered, so I know it was accepted.
 
     - Each input informs you when the data entered was accepted or if it wasn't it alerts you and gives you the opportunity to enter it again.
 
@@ -394,7 +394,7 @@ The following instructions explain how to deploy to Heroku:
 
 ### Content
 
-* Inspiration for the calculator came from the developers current workplace. The creche the developer works in relies on someone in the office to calculate the budgets each week and send a spreadsheet to each creche with their food budget information. The developers intention was to streamline this process.
+* Inspiration for the calculator came from the developers current workplace. The creche the developer works in relies on someone in the office to calculate the budgets each week and send a spreadsheet to each creche with their food budget information. The developer's intention was to streamline this process.
 
 ### Code
 
@@ -402,7 +402,7 @@ The following instructions explain how to deploy to Heroku:
 
 * [PyPI](https://pypi.org/) was consulted for instructions on how to install and use PrettyTables.
 
-## Acknowledgements
+## Acknowledgments
 
 * My partner and family for all their love and support during this course and this project.
 
