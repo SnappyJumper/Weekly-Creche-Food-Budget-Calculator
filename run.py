@@ -201,8 +201,8 @@ def terminal_table_budget(when, week_budget, meat, veg, herbs, dairy):
     # creates a new table and assigns it to a variable
     budget_table = PrettyTable()
     # adds the column names to the table
-    budget_table.field_names = ["Week Starting", "Total Budget", "Meat Budget",
-                                "Veg Budget", "Herbs Budget", "Dairy Budget"]
+    budget_table.field_names = ["Week Starting", "Total Budget", "Meat",
+                                "Veg", "Herbs", "Dairy"]
     # adds a row to the table
     budget_table.add_row([when, week_budget, meat, veg, herbs, dairy])
 
@@ -222,9 +222,9 @@ def terminal_table_attendance(week_date, attendance_data, kid_limit):
     print()
     print(Fore.BLUE + "Predicted Attendance For The Week:\n")
     # adds the column names to the table
-    attendance_table.field_names = ["Week Starting", "Monday", "Tuesday",
-                                    "Wednesday", "Thursday", "Friday",
-                                    "Creche Daily Capacity"]
+    attendance_table.field_names = ["Week Starting", "Mon", "Tues",
+                                    "Wed", "Thurs", "Fri",
+                                    "Max Capacity"]
     # adds a row to the table
     attendance_table.add_row([week_date, attendance_data[0],
                              attendance_data[1], attendance_data[2],
