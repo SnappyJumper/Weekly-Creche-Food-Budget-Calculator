@@ -210,12 +210,36 @@ The [CI Python Linter](https://pep8ci.herokuapp.com/#) was used during developme
 
 ### Manual Testing
 
-Feature | Outcome | Pass/Fail
---- | --- | ---
-Date Entry | If the input entered is text, empty or not a valid date then user should recieve an error message and a request to input the data again. | Pass
-Creche Capacity Entry | If the input entered is text, empty or less than 1 then the user should recieve an error message a request to input the data again. | Pass
-Predicted Attendance Entry | If the input entered is text, empty, greater than the creche capacity or a negative value then the user should recieve an error message and a request to enter the data again. | Pass
-Restart Program | When the user inputs Y then the program should restart from the begining if they enter N then the program should exit. | Pass
+<table>
+    <tr>
+        <th>Feature</th>
+        <th>Input</th>
+        <th>Expected Outcome</th>
+        <th>Result</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=3>Date Entry Year</td>
+        <td>Empty</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/date-year-test-empty.png alt="Date Entry is empty"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value below four digits</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/date-year-test-not-four.png alt="Date Entry is less than four digits"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value is not a number</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/date-year-test-not-num.png alt="Date Entry is not a number"></td>
+        <td>Pass</td>
+    </tr>
+    
+    
+</table>
 
 [Back to top ^](#creche-budget-calculator)
 
