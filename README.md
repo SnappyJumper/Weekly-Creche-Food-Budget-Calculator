@@ -1,6 +1,6 @@
 # Creche Budget Calculator
 
-![Creche Budget Calculator Mockup Image](assets/images/mockup-image.png)
+![Creche Budget Calculator Mockup Image](assets/readme-files/images/mockup-image.png)
 
 The Creche Budget Calculator is designed to help the users to organise the weekly food budget for their creche.
 
@@ -82,7 +82,7 @@ The calculations are stored to variables so that they can be formatted and displ
 
 The flowchart was designed using [Miro](https://miro.com/). It was used to help plan the logic implemented in the program.
 
-![Flowchart](assets/images/project_flowchart.png)
+![Flowchart](assets/readme-files/images/project_flowchart.png)
 
 As shown in the flowchart the process has changed and some functionality was added and dropped during development but the main idea demonstrated is the same.
 
@@ -94,19 +94,19 @@ As shown in the flowchart the process has changed and some functionality was add
 
 Collects the date of the Monday of the week and stores it to a variable. This is useful for when the output displays later. If the user runs the program multiple times for different weeks the date will help them differenciate between each output.
 
-![Date Entry](assets/images/date-entry-image.png)
+![Date Entry](assets/readme-files/images/date-entry-image.png)
 
 ### Creche Capacity Entry
 
 Collects the total capacity of the users creche and stores it to a variable. This is then displayed in the output and is also used to limit the predicted attendance input so the user cannot enter a value higher than the capacity they entered.
 
-![Creche Capacity Entry](assets/images/creche-capacity-image.png)
+![Creche Capacity Entry](assets/readme-files/images/creche-capacity-image.png)
 
 ### Predicted Attendance Entry
 
 Collects the attendance on each weekday and stores it as a variable which will be used later to calculate the total budget for the week and also to display in the output.
 
-![Predicted Attendance Entry](assets/images/predicted-attendance-image.png)
+![Predicted Attendance Entry](assets/readme-files/images/predicted-attendance-image.png)
 
 ### Weekly Budget Calculator
 
@@ -120,21 +120,21 @@ Takes the total budget and depending on the specific subcategory allocates a per
 
 The inputs the user has put into the program are displayed at the end so that they can be reviewed in case of error. They are displayed in a table format.
 
-![Inputs Table](assets/images/inputs-table-image.png)
+![Inputs Table](assets/readme-files/images/inputs-table-image.png)
 
 ### Outputs Displayed
 
 The outputs the user receives are clearly displayed on a neat table in the terminal.
 
-![Outputs Table](assets/images/outputs-table-image.png)
+![Outputs Table](assets/readme-files/images/outputs-table-image.png)
 
 ### Restart Program
 
 Gives the user the option to run the program again or to quit out.
 
-![Restart Image Positive](assets/images/restart-image-positive.png)
+![Restart Image Positive](assets/readme-files/images/restart-image-positive.png)
 
-![Restart Image Negative](assets/images/restart-image-negative.png)
+![Restart Image Negative](assets/readme-files/images/restart-image-negative.png)
 
 ### Future Features
 
@@ -202,11 +202,11 @@ The [CI Python Linter](https://pep8ci.herokuapp.com/#) was used during developme
 
 * Before Validation:
 
-![Before](assets/images/pep8ci-validation-before.png)
+![Before](assets/readme-files/images/pep8ci-validation-before.png)
 
 * After Validation:
 
-![After](assets/images/pep8ci-validation-after.png)
+![After](assets/readme-files/images/pep8ci-validation-after.png)
 
 ### Manual Testing
 
@@ -219,26 +219,149 @@ The [CI Python Linter](https://pep8ci.herokuapp.com/#) was used during developme
         <th>Pass/Fail</th>
     </tr>
     <tr>
-        <td rowspan=3>Date Entry Year</td>
+        <td rowspan=4>Date Entry Year</td>
         <td>Empty</td>
         <td>Error and try again</td>
-        <td><img src=assets/readme-files/images/date-year-test-empty.png alt="Date Entry is empty"></td>
+        <td><img src=assets/readme-files/images/date-year-test-empty.png alt="Date Year Entry is empty"></td>
         <td>Pass</td>
     </tr>
     <tr>
         <td>Value below four digits</td>
         <td>Error and try again</td>
-        <td><img src=assets/readme-files/images/date-year-test-not-four.png alt="Date Entry is less than four digits"></td>
+        <td><img src=assets/readme-files/images/date-year-test-not-four.png alt="Date Year Entry is less than four digits"></td>
         <td>Pass</td>
     </tr>
     <tr>
         <td>Value is not a number</td>
         <td>Error and try again</td>
-        <td><img src=assets/readme-files/images/date-year-test-not-num.png alt="Date Entry is not a number"></td>
+        <td><img src=assets/readme-files/images/date-year-test-not-num.png alt="Date Year Entry is not a number"></td>
         <td>Pass</td>
     </tr>
-    
-    
+    <tr>
+        <td>Value is negative</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/date-year-test-neg.png alt="Date Year Entry is negative"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td rowspan=4>Date Entry Month</td>
+        <td>Empty</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/date-month-test-empty.png alt="Date Month Entry is empty"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value above 12 months</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/date-month-test-too-high.png alt="Date Month Entry is above 12"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value is negative</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/date-month-test-neg.png alt="Date Month Entry is negative"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value is not a number</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/date-month-test-not-num.png alt="Date Month Entry is not a number"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td rowspan=5>Date Entry Day</td>
+        <td>Value is empty</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/date-day-test-empty.png alt="Date Day Entry is empty"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value above 31 days</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/date-day-test-over-31.png alt="Date Day Entry is over 31"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value is above 29 on a February</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/date-day-test-feb.png alt="Date Day Entry is over 29 on a february"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value is negative</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/date-day-test-neg.png alt="Date Day Entry is negative"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value is not a number</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/date-day-test-not-num.png alt="Date Day Entry is not a number"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td rowspan=4>Creche Capacity Entry</td>
+        <td>Value is empty</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/capacity-empty.png alt="Creche Capacity Entry is empty"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value is negative</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/capacity-neg.png alt="Creche Capacity Entry is negative"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value is zero</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/capacity-zero.png alt="Creche Capacity Entry is zero"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value is not a number</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/capacity-not-num.png alt="Creche Capacity Entry is not a number"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td rowspan=3>Predicted Attendance Entry</td>
+        <td>Value is empty</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/attendance-empty.png alt="Predicted Attendance Entry is empty"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value is negative</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/attendance-neg.png alt="Predicted Attendance Entry is negative"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value is not a number</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/attendance-not-num.png alt="Predicted Attendance Entry is not a number"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td rowspan=3>Restart Program</td>
+        <td>Value is neither "y" or "n"</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/exit-not-y-n.png alt="Restart Program Entry not y or n"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value is a number</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/exit-is-num.png alt="Restart Program Entry is a number"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Value is empty</td>
+        <td>Error and try again</td>
+        <td><img src=assets/readme-files/images/exit-is-empty.png alt="Restart Program Entry is empty"></td>
+        <td>Pass</td>
+    </tr> 
 </table>
 
 [Back to top ^](#creche-budget-calculator)

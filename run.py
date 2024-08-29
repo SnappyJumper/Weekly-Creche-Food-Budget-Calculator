@@ -106,7 +106,7 @@ def validate_capacity(cap):
     except ValueError:
         print()
         print(Fore.RED + "Invalid input, positive numbers only,"
-              "please try again.")
+              " please try again.")
         print(Style.RESET_ALL)
         return False
 
@@ -154,7 +154,7 @@ def validate_attendance(att, creche_capacity):
     except ValueError:
         print()
         print(Fore.RED + "Input error, input should be a positive number"
-              "that does not exceed the creche capacity, please try again")
+              " that does not exceed the creche capacity, please try again")
         print(Style.RESET_ALL)
         return False
 
