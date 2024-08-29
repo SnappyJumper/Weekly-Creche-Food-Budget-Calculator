@@ -6,7 +6,7 @@ The Creche Budget Calculator is designed to help the users to organise the weekl
 
 It can calculate the total budget for the creche per week and also allocate that budget to a few subcategories like meat, veg and dairy.
 
-Visit the deployed application [here]().
+Visit the deployed application [here](https://creche-budget-calculator-b01b347ae64b.herokuapp.com/).
 
 ## Table of Contents
 1. [User Experience (UX)](#user-experience-UX)
